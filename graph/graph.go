@@ -32,6 +32,15 @@ func New() *graph {
 	}
 }
 
+func NewDirected() *graph {
+	return &graph{
+		edges:      make(map[int]map[int]int),
+		directed:   true,
+		inDegrees:  make(map[int]int),
+		outDegrees: map[int]int{},
+	}
+}
+
 func (g *graph) AddEdge(u, v int) {
 	g.AddVertex(u)
 	g.AddVertex(v)
